@@ -2,10 +2,10 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import Container from './components/Container/Container';
-import SignInPage from './modules/SignInPage/SignInPage';
-import TextBlock from './components/TextBlockForm/TextBlock';
-import LoginForm from './components/Forms/LoginForm';
+import Container from '../components/Container/Container';
+import SignInPage from '../modules/SignInPage/SignInPage';
+import TextBlock from '../components/TextBlockForm/TextBlock';
+import SignUpForm from '../components/Forms/SignUpForm';
 import Router from 'next/navigation';
 
 const GlobalStyles = createGlobalStyle`
@@ -21,21 +21,22 @@ const GlobalStyles = createGlobalStyle`
 
 export default function Home() {
 
-  const router = useRouter();
+    const router = useRouter();
 
   const handleSubmit = (values:any) => {
     console.log(values);
 
-    router.push('/mainpage')
+    router.push('/mainpage');
   }
 
   return (
     <Container>
       <GlobalStyles />
       <SignInPage>
-          <TextBlock topText='Welcome back!' bottomText="Don't have an account?" linkText="Sign Up here" linkTo="signupform" />
-          <LoginForm onSubmit={handleSubmit}/>
+          <TextBlock topText='Get started absolutely free' bottomText="Already have an account?" linkText="Login" linkTo="/" />
+          <SignUpForm onSubmit={handleSubmit}/>
       </SignInPage>
     </Container>
   )
 }
+
