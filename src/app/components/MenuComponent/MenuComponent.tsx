@@ -21,6 +21,8 @@ const Block = styled.div`
     align-items: center;
     gap: 16px;
     height: 44px;
+    border-radius: 8px;
+    background-color: transparent;
 `;
 
 const PStyles = styled.p`
@@ -31,7 +33,7 @@ const PStyles = styled.p`
     color: #637381;
 `
 
-const UsableBlock: React.FC<Text> = ({ text, svgHref }) => {
+const UsableBlock: React.FC<Text> = ({ text, svgHref, ...rest }) => {
     return (
         <Block className={public_sans.className}>
             <img src={svgHref}></img>

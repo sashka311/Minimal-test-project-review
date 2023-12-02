@@ -26,7 +26,7 @@ export default function Home() {
   const handleSubmit = (values:any) => {
     console.log(values);
 
-    router.push('/mainpage')
+    router.push(`/mainpage?email=${values.email}`);
   }
 
   return (

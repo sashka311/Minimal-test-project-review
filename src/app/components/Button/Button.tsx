@@ -12,7 +12,7 @@ interface ButtonProps {
     text: string;
     type: 'button' | 'submit' | 'reset' | undefined;
     width?: string;
-    paddingg?: string;
+    padding?: string;
     fontSize?: string;
     lineheight?: string;
 }
@@ -27,21 +27,21 @@ const Text = styled.p<{ lineheight?: string, fontSize?: string}>`
     font-size: ${(props) => props.fontSize || '15px'};
 `;
 
-const Btn = styled.button<{ width?: string, paddingg?: string }>`
+const Btn = styled.button<{ width?: string, padding?: string }>`
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgba(33, 43, 54, 1);
     border-radius: 8px;
-    padding: ${(props) => props.paddingg || '11px 16px'};
+    padding: ${(props) => props.padding || '11px 16px'};
     border: none;
     cursor: pointer;
     width: ${(props) => props.width || '100%'};
 `;
 
-const Button: React.FC<ButtonProps> = ({ text, type, width, paddingg, lineheight, fontSize, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ text, type, width, padding, lineheight, fontSize, ...rest }) => {
     return (
-        <Btn type={type} width={width} paddingg={paddingg}>
+        <Btn type={type} width={width} padding={padding}>
             <Text className={public_sans.className} fontSize={fontSize} lineheight={lineheight}>
                 {text}
             </Text>
