@@ -1,7 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
 import Link from 'next/link';
-import Container from '../../components/Container/Container';
 import Header from "../../components/Header/Header";
 import { useRouter, useSearchParams } from 'next/navigation';
 import MenuComponent from "../../components/MenuComponent/MenuComponent";
@@ -20,13 +19,15 @@ const MenuBlock = styled.div`
     display: flex;
     width: 280px;
     height: 100%;
+    border-right: 1px solid rgba(145, 158, 171, 0.20);
+    border-right-style: dashed;
 `;
 
 const Content = styled.div`
     display: flex;
     position: relative;
     height: 100%;
-    width: 100%;
+    width: 1160px;
 `;
 
 const Page = styled.div`
@@ -110,7 +111,6 @@ const ContentLayout: React.FC<ContentProps> = ({ children, text }) => {
     const search = searchParams.get('email');
 
     return (
-        <Container>
             <Page>
                 <MenuBlock>
                 <Wrapper>
@@ -147,7 +147,6 @@ const ContentLayout: React.FC<ContentProps> = ({ children, text }) => {
                     { children }
                 </Content>
             </Page>
-        </Container>
     )
 }
 

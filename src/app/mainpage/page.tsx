@@ -4,6 +4,10 @@ import LayoutMenu from "../modules/LayoutMenu/LayoutMenu";
 import Container from "../components/Container/Container";
 import styled, { createGlobalStyle } from "styled-components";
 import SmallCard from "../components/SmallCard/SmallCard";
+import BigCard from "../components/BigCard/BigCard";
+import TinyLineGraph from "../components/Graphics/TinyLineGraph";
+import Legend from "../components/LegendForChart/LineChartLegend";
+import BarChart from "../components/Graphics/BarChart";
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -20,6 +24,31 @@ const Page = styled.div`
     height: 100%;
     width: 100%;
     padding: 88px 40px 0px 40px;
+    gap: 24px;
+`
+
+const Cards = styled.div`
+  display: flex;
+  gap: 24px;
+  width: 100%;  
+`;
+
+const Charts = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+    width: 100%;
+`
+
+const ChartLegend = styled.div`
+    display: flex;
+    width: 100%;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    color: #212B36;
 `
 
 export default function Main() {
@@ -30,7 +59,23 @@ export default function Main() {
             <GlobalStyles />
             <LayoutMenu text={pageTitle}>
                 <Page>
-                    <SmallCard count="2282" cardName="Heello" imgHref="docs.png" />
+                    <Cards>
+                        <SmallCard count="95,500" cardName="Total Booking" imgHref="docs.png" />
+                        <SmallCard count="352,500$" cardName="Income" imgHref="man.png" />
+                        <SmallCard count="20,388" cardName="Canceled" imgHref="woman.png" />
+                    </Cards>
+                    <Charts>
+                        <BigCard background="rgb(209,241,229)">
+                            <Legend gap="8px"/>
+                            <TinyLineGraph />
+                        </BigCard>
+                        <BigCard>
+                            <ChartLegend>
+                                Booked
+                            </ChartLegend>
+                            <BarChart />
+                        </BigCard>
+                    </Charts>
                 </Page>
             </LayoutMenu>
         </Container>
