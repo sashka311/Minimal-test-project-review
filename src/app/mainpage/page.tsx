@@ -8,6 +8,7 @@ import BigCard from "../components/BigCard/BigCard";
 import TinyLineGraph from "../components/Graphics/TinyLineGraph";
 import Legend from "../components/LegendForChart/LineChartLegend";
 import BarChart from "../components/Graphics/BarChart";
+import RadialChart from "../components/Graphics/RadialChart";
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -75,6 +76,7 @@ export default function Main() {
                             </ChartLegend>
                             <BarChart />
                         </BigCard>
+                        <RadialChart />
                     </Charts>
                 </Page>
             </LayoutMenu>
