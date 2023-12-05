@@ -9,6 +9,7 @@ import TinyLineGraph from "../components/Graphics/TinyLineGraph";
 import Legend from "../components/LegendForChart/LineChartLegend";
 import BarChart from "../components/Graphics/BarChart";
 import RadialChart from "../components/Graphics/RadialChart";
+import LongCard from "../components/LongCard/LongCard";
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -39,7 +40,7 @@ const Charts = styled.div`
     flex-direction: row;
     gap: 24px;
     flex-wrap: wrap;
-    width: 100%;
+    width: 712px;
 `
 
 const ChartLegend = styled.div`
@@ -50,6 +51,11 @@ const ChartLegend = styled.div`
     font-weight: 700;
     line-height: 28px;
     color: #212B36;
+`
+const Content = styled.div`
+    display: flex;
+    gap: 24px;
+    width: 100%;
 `
 
 export default function Main() {
@@ -65,19 +71,22 @@ export default function Main() {
                         <SmallCard count="352,500$" cardName="Income" imgHref="man.png" />
                         <SmallCard count="20,388" cardName="Canceled" imgHref="woman.png" />
                     </Cards>
-                    <Charts>
-                        <BigCard background="rgb(209,241,229)">
-                            <Legend />
-                            <TinyLineGraph />
-                        </BigCard>
-                        <BigCard>
-                            <ChartLegend>
-                                Booked
-                            </ChartLegend>
-                            <BarChart />
-                        </BigCard>
+                    <Content>
+                        <Charts>
+                            <BigCard background="rgb(209,241,229)">
+                                <Legend />
+                                <TinyLineGraph />
+                            </BigCard>
+                            <BigCard>
+                                <ChartLegend>
+                                    Booked
+                                </ChartLegend>
+                                <BarChart />
+                            </BigCard>
+                            <LongCard />
+                        </Charts>
                         <RadialChart />
-                    </Charts>
+                    </Content>
                 </Page>
             </LayoutMenu>
         </Container>

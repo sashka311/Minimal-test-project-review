@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
-import { Public_Sans, Roboto_Flex } from 'next/font/google';
+import { Public_Sans } from 'next/font/google';
 
 const public_sans = Public_Sans({
     weight: ['400', '500', '600', '700'],
