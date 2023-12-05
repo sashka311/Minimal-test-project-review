@@ -13,11 +13,6 @@ const LegendHolder = styled.div`
     justify-content: space-between;
     width: 100%;
 `
-const Block = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: ${(props) => props.gap || '4px'};
-`
 
 const UpText = styled.p`
     color: #004B50;
@@ -47,14 +42,21 @@ const RBotText = styled.p`
     line-height: 22px;
 `
 
-interface Legend {
-    gap?: string;
-}
 
-const Legend: React.FC<Legend> = ({gap}) => {
+const Legend: React.FC = () => {
+
+    interface ForBlock {
+        gap?: string;
+    }
+    const Block = styled.div<ForBlock>`
+    display: flex;
+    flex-direction: column;
+    gap: ${(props) => props.gap || '4px'};
+    `
+
     return (
         <LegendHolder className={public_sans.className}>
-            <Block gap={gap}>
+            <Block gap='8px'>
                 <UpText>
                     Total Incomes
                 </UpText>

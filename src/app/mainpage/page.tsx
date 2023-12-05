@@ -67,7 +67,7 @@ export default function Main() {
                     </Cards>
                     <Charts>
                         <BigCard background="rgb(209,241,229)">
-                            <Legend gap="8px"/>
+                            <Legend />
                             <TinyLineGraph />
                         </BigCard>
                         <BigCard>

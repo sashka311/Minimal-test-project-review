@@ -46,12 +46,6 @@ const ColorBlock = styled.div`
     gap: 8px;
     align-items: center;
 `
-const Color = styled.div`
-    height: 20px;
-    width: 20px;
-    background: ${(props) => props.background || '#FFF'};
-    border-radius: 6px;
-`
 
 const Chart = styled.div`
     display: flex;
@@ -101,7 +95,19 @@ const RadialChart: React.FC = () => {
         lineHeight: '22px',
         color:'#212B36',
     }
+    
+    interface ForColor {
+        background: string;
+    }
+    const Color = styled.div<ForColor>`
+    height: 20px;
+    width: 20px;
+    background: ${(props) => props.background || '#FFF'};
+    border-radius: 6px;
+    `
+
     return (
+        
         <ChartBlock className={public_sans.className}>
             <ChartName>
                 Tours Available
