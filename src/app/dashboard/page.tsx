@@ -3,13 +3,13 @@ import React from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import Container from "../../components/Container/Container";
 import styled from "styled-components";
-import SmallCard from "../../components/SmallCard/SmallCard";
+import SmallCard from "../../modules/Dashboard/SmallCard/SmallCard";
 import BigCard from "../../modules/Dashboard/BigCard/BigCard";
 import TinyLineGraph from "../../modules/Dashboard/Graphics/TinyLineGraph";
-import Legend from "../../components/LegendForChart/LineChartLegend";
+import Legend from "../../modules/Dashboard/LegendForChart/LineChartLegend";
 import BarChart from "../../modules/Dashboard/Graphics/BarChart";
 import RadialChart from "../../modules/Dashboard/Graphics/RadialChart";
-import LongCard from "../../components/LongCard/LongCard";
+import LongCard from "../../modules/Dashboard/LongCard/LongCard";
 import { KPIs, Data } from "../../types/dashboard.types";
 import KPICards from "../../modules/Dashboard/KPICards/KPICards";
 

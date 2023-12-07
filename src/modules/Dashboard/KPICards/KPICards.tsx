@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { KPIs } from "../../../types/dashboard.types";
-import SmallCard from "../../../components/SmallCard/SmallCard";
+import SmallCard from "../SmallCard/SmallCard";
 
 interface Props  {
     kpis: KPIs;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import RadialSmall from "../../modules/Dashboard/Graphics/RadialSmall";
+import RadialSmall from "../Graphics/RadialSmall";
 
 const Card = styled.div`
     display: flex;
