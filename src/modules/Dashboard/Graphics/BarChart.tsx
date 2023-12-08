@@ -1,5 +1,7 @@
+import { ListItem } from '@mui/material';
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { string } from 'yup';
 import { BarKPIs } from '../../../types/dashboard.types';
 
 const BarContainer = styled.div`
@@ -56,7 +58,7 @@ const BarName: React.FC<ForBarName> = ({ fontSize, fontWeight, lineHeight, textT
 };
 
 interface ForLine {
-    width: string;
+    width: any;
     background: string;
 }
 
@@ -69,7 +71,7 @@ to {
 }
 `;
 
-const Line: React.FC<ForLine> = ({width, background}) => {
+const Line: React.FC<ForLine> = ({ width, background }) => {
     const LineElement = styled.div<ForLine>`
         width: ${(props) => props.width || '100%'};
         background: ${(props) => props.background || '#FFF'};
@@ -79,46 +81,62 @@ const Line: React.FC<ForLine> = ({width, background}) => {
     `;
 
     return (
-        <LineElement width={width} background={background}/>
+        <LineElement width={width} background={background} />
     )
 }
 
+// const data = [
+//     {
+//         label: 'Pending',
+//         value: 56000,
+//         percentage: 75,
+//         background: '#FFAB00',
+//     },
+//     {
+//         label: 'Canceled',
+//         value: 10000,
+//         percentage: 29,
+//         background:'rgba(255, 86, 48, 1)',
+//     },
+//     {
+//         label: 'Sold',
+//         value: 70,
+//         percentage: 56,
+//         background:'rgba(34, 197, 94, 1)',
+//     },
+// ]
+
+// const BarCharted = ({ kpis }: Props) => {
 interface Props {
     kpis: BarKPIs;
 }
 
 const BarCharted = ({ kpis }: Props) => {
-    
 
     return (
         <BarContainer>
-            <BarBlock>
-                <InfoBlock>
-                    <BarName fontSize='12px' lineHeight='18px' textTransform='uppercase' text='Pending' fontWeight='700' />
-                    <BarName fontSize='16px' lineHeight='24px' fontWeight='600' text={kpis.pending} />
-                </InfoBlock>
-                <BarLine>
-                    <Line width='208px' background='#FFAB00' />
-                </BarLine>
-            </BarBlock>
-            <BarBlock>
-                <InfoBlock>
-                    <BarName fontSize='12px' lineHeight='18px' textTransform='uppercase' text='Canceled' fontWeight='700' />
-                    <BarName fontSize='16px' lineHeight='24px' fontWeight='600' text={kpis.canceled} />
-                </InfoBlock>
-                <BarLine>
-                    <Line width='130px' background='rgba(255, 86, 48, 1)' />
-                </BarLine>
-            </BarBlock>
-            <BarBlock>
-                <InfoBlock>
-                    <BarName fontSize='12px' lineHeight='18px' textTransform='uppercase' text='Sold' fontWeight='700' />
-                    <BarName fontSize='16px' lineHeight='24px' fontWeight='600' text={kpis.sold} />
-                </InfoBlock>
-                <BarLine>
-                    <Line width='130px' background='rgba(34, 197, 94, 1)' />
-                </BarLine>
-            </BarBlock>
+            {kpis.map((item: any, index: number) => (
+                <BarBlock key={index}>
+                    <InfoBlock>
+                        <BarName
+                            fontSize='12px'
+                            lineHeight='18px'
+                            textTransform='uppercase'
+                            text={item.label}
+                            fontWeight='700'
+                        />
+                        <BarName
+                            fontSize='16px'
+                            lineHeight='24px'
+                            fontWeight='600'
+                            text={item.value}
+                        />
+                    </InfoBlock>
+                    <BarLine>
+                        <Line width={item.percentage + '%'} background={item.background} />
+                    </BarLine>
+                </BarBlock>
+            ))}
         </BarContainer>
     );
 }

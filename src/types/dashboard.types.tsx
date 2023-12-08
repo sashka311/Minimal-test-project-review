@@ -14,10 +14,11 @@ export interface Data {
 }
 
 export interface BarKPIs {
-    pending: number;
-    canceled: number;
-    sold: number;
-}
+    percentage: number;
+    value: number;
+    label: string;
+    background: string;
+}[];
 
 export interface LineKPI {
     totalIncomes: number;
