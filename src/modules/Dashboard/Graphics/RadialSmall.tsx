@@ -22,7 +22,7 @@ const Texted = styled.p`
 
 interface ChooseColor {
     fillColor: string;
-    text: string;
+    text: any;
 }
 
 const RadialSmall: React.FC<ChooseColor> = ({ fillColor, text }) => {

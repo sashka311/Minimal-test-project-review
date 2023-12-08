@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
 import styled from 'styled-components';
+import { BigRadialKPIs } from '../../../types/dashboard.types';
 
 const ChartBlock = styled.div`
     display: flex;
@@ -69,35 +70,40 @@ const data = [
     }
 ]
 
-const RadialChart: React.FC = () => {
-    const numberstyled = {
-        fontSize: '32px',
-        fontWeight: '700',
-        lineHeight: '48px',
-        color:'#212B36',
-    }
-    const pstyles = {
-        fontSize: '14px',
-        fontWeight: '600',
-        lineHeight: '22px',
-        color:'#637381',
-    }
-    const countstyles = {
-        fontSize: '14px',
-        fontWeight: '600',
-        lineHeight: '22px',
-        color:'#212B36',
-    }
-    
-    interface ForColor {
-        background: string;
-    }
-    const Color = styled.div<ForColor>`
-    height: 20px;
-    width: 20px;
-    background: ${(props) => props.background || '#FFF'};
-    border-radius: 6px;
-    `
+const numberstyled = {
+    fontSize: '32px',
+    fontWeight: '700',
+    lineHeight: '48px',
+    color:'#212B36',
+}
+const pstyles = {
+    fontSize: '14px',
+    fontWeight: '600',
+    lineHeight: '22px',
+    color:'#637381',
+}
+const countstyles = {
+    fontSize: '14px',
+    fontWeight: '600',
+    lineHeight: '22px',
+    color:'#212B36',
+}
+
+interface ForColor {
+    background: string;
+}
+const Color = styled.div<ForColor>`
+height: 20px;
+width: 20px;
+background: ${(props) => props.background || '#FFF'};
+border-radius: 6px;
+`
+
+interface Props {
+    kpis: BigRadialKPIs;
+}
+
+const RadialChart = ({kpis}: Props) => {
 
     return (
         
@@ -111,7 +117,7 @@ const RadialChart: React.FC = () => {
                         Tours
                     </p>
                     <p style={numberstyled}>
-                        120
+                        {kpis.soldOut}
                     </p>
                 </ChartInfo>
                 <ResponsiveContainer width="100%" height="100%">
@@ -133,7 +139,7 @@ const RadialChart: React.FC = () => {
                         </p>
                     </ColorBlock>
                     <p style={countstyles}>
-                        120 tours
+                        {kpis.soldOut}
                     </p>
                 </LegendBlock>
                 <LegendBlock>
@@ -144,7 +150,7 @@ const RadialChart: React.FC = () => {
                         </p>
                     </ColorBlock>
                     <p style={countstyles}>
-                        66 tours
+                        {kpis.available}
                     </p>
                 </LegendBlock>
             </ChartLegend>

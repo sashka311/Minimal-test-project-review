@@ -6,6 +6,8 @@ interface BgCard {
   children: React.ReactNode;
 }
 
+
+
 const BigCard: React.FC<BgCard> = ({background, children}) => {
   
     const CardGraph = styled.div<BgCard>`

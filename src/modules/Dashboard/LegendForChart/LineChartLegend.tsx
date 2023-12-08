@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { LineKPI } from '../../../types/dashboard.types';
 
 const LegendHolder = styled.div`
     display: flex;
@@ -34,18 +35,19 @@ const RBotText = styled.p`
     font-weight: 400;
     line-height: 22px;
 `
+interface ForBlock {
+    gap?: string;
+}
+const Block = styled.div<ForBlock>`
+display: flex;
+flex-direction: column;
+gap: ${(props) => props.gap || '4px'};
+`
+interface Props {
+    kpis: LineKPI;
+}
 
-
-const Legend: React.FC = () => {
-
-    interface ForBlock {
-        gap?: string;
-    }
-    const Block = styled.div<ForBlock>`
-    display: flex;
-    flex-direction: column;
-    gap: ${(props) => props.gap || '4px'};
-    `
+const Legend = ({kpis}: Props) => {
 
     return (
         <LegendHolder>
@@ -54,12 +56,12 @@ const Legend: React.FC = () => {
                     Total Incomes
                 </UpText>
                 <BotText>
-                    $9,990
+                    {kpis.totalIncomes}
                 </BotText>
             </Block>
             <Block>
                 <RightText>
-                    +8.2%
+                    {kpis.percent}
                 </RightText>
                 <RBotText>
                     than last week

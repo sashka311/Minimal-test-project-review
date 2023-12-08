@@ -57,6 +57,25 @@ const data: Data = {
         breakdown: [40000, 50000, 60000, 100000, 90000, 92000, 95000],
       },
     },
+    barchart: {
+        pending: '56,000',
+        canceled: '50,456',
+        sold: '155,670',
+    },
+    linechart: {
+        totalIncomes: '9,990',
+        percent: '8,2%',
+    },
+    smallRadials: {
+        sold: '9,990',
+        pendingPayment: '10,989',
+        percentSold: '73,9%',
+        percentPending: '45,6%',
+    },
+    radial: {
+        soldOut: 120,
+        available: 66,
+    }
   };
 
 export default function Main() {
@@ -70,18 +89,18 @@ export default function Main() {
                     <Content>
                         <Charts>
                             <BigCard background="rgb(209,241,229)">
-                                <Legend />
+                                <Legend kpis={data.linechart} />
                                 <TinyLineGraph />
                             </BigCard>
                             <BigCard>
                                 <ChartLegend>
                                     Booked
                                 </ChartLegend>
-                                <BarChart />
+                                <BarChart kpis={data.barchart} />
                             </BigCard>
-                            <LongCard />
+                            <LongCard kpis={data.smallRadials} />
                         </Charts>
-                        <RadialChart />
+                        <RadialChart kpis={data.radial} />
                     </Content>
                 </Page>
             </DashboardLayout>

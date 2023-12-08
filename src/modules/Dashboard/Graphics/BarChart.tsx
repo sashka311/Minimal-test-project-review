@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
+import { BarKPIs } from '../../../types/dashboard.types';
 
 const BarContainer = styled.div`
     display: flex;
@@ -30,67 +31,71 @@ const BarLine = styled.div`
     border-radius: 50px;
     background: rgba(145, 158, 171, 0.16);
 `
+interface ForBarName {
+    fontSize: string;
+    fontWeight: string;
+    lineHeight: string;
+    textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana';
+    text: any;
+}
 
-
-const BarCharted: React.FC = () => {
-    interface ForBarName {
-        fontSize: string;
-        fontWeight: string;
-        lineHeight: string;
-        textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana';
-        text: string;
-    }
-
-    const BarName: React.FC<ForBarName> = ({ fontSize, fontWeight, lineHeight, textTransform, text }) => {
-        const paragraphStyle = {
-            fontSize: fontSize,
-            fontWeight: fontWeight,
-            lineHeight: lineHeight,
-            textTransform: textTransform,
-            color: '#212B36',
-        };
-    
-        return (
-            <p style={paragraphStyle}>
-                {text}
-            </p>
-        );
+const BarName: React.FC<ForBarName> = ({ fontSize, fontWeight, lineHeight, textTransform, text }) => {
+    const paragraphStyle = {
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        lineHeight: lineHeight,
+        textTransform: textTransform,
+        color: '#212B36',
     };
 
-    interface ForLine {
-        width: string;
-        background: string;
-    }
+    return (
+        <p style={paragraphStyle}>
+            {text}
+        </p>
+    );
+};
 
-    const increaseWidth = keyframes`
-    from {
-        width: 0;
-    }
-    to {
-        width: ${(props: ForLine) => props.width || '100%'};
-    }
+interface ForLine {
+    width: string;
+    background: string;
+}
+
+const increaseWidth = keyframes`
+from {
+    width: 0;
+}
+to {
+    width: ${(props: ForLine) => props.width || '100%'};
+}
+`;
+
+const Line: React.FC<ForLine> = ({width, background}) => {
+    const LineElement = styled.div<ForLine>`
+        width: ${(props) => props.width || '100%'};
+        background: ${(props) => props.background || '#FFF'};
+        height: 100%;
+        border-radius: 50px;
+        animation: ${increaseWidth} 1s ease-in-out;
     `;
 
-    const Line: React.FC<ForLine> = ({width, background}) => {
-        const LineElement = styled.div<ForLine>`
-            width: ${(props) => props.width || '100%'};
-            background: ${(props) => props.background || '#FFF'};
-            height: 100%;
-            border-radius: 50px;
-            animation: ${increaseWidth} 1s ease-in-out;
-        `;
+    return (
+        <LineElement width={width} background={background}/>
+    )
+}
 
-        return (
-            <LineElement width={width} background={background}/>
-        )
-    }
+interface Props {
+    kpis: BarKPIs;
+}
+
+const BarCharted = ({ kpis }: Props) => {
+    
 
     return (
         <BarContainer>
             <BarBlock>
                 <InfoBlock>
                     <BarName fontSize='12px' lineHeight='18px' textTransform='uppercase' text='Pending' fontWeight='700' />
-                    <BarName fontSize='16px' lineHeight='24px' fontWeight='600' text='56,000' />
+                    <BarName fontSize='16px' lineHeight='24px' fontWeight='600' text={kpis.pending} />
                 </InfoBlock>
                 <BarLine>
                     <Line width='208px' background='#FFAB00' />
@@ -99,7 +104,7 @@ const BarCharted: React.FC = () => {
             <BarBlock>
                 <InfoBlock>
                     <BarName fontSize='12px' lineHeight='18px' textTransform='uppercase' text='Canceled' fontWeight='700' />
-                    <BarName fontSize='16px' lineHeight='24px' fontWeight='600' text='50,456' />
+                    <BarName fontSize='16px' lineHeight='24px' fontWeight='600' text={kpis.canceled} />
                 </InfoBlock>
                 <BarLine>
                     <Line width='130px' background='rgba(255, 86, 48, 1)' />
@@ -108,7 +113,7 @@ const BarCharted: React.FC = () => {
             <BarBlock>
                 <InfoBlock>
                     <BarName fontSize='12px' lineHeight='18px' textTransform='uppercase' text='Sold' fontWeight='700' />
-                    <BarName fontSize='16px' lineHeight='24px' fontWeight='600' text='155,670' />
+                    <BarName fontSize='16px' lineHeight='24px' fontWeight='600' text={kpis.sold} />
                 </InfoBlock>
                 <BarLine>
                     <Line width='130px' background='rgba(34, 197, 94, 1)' />

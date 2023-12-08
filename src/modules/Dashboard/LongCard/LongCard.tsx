@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import RadialSmall from "../Graphics/RadialSmall";
+import { SmallRadialsKPI } from "../../../types/dashboard.types";
 
 const Card = styled.div`
     display: flex;
@@ -28,7 +29,7 @@ interface ForText {
     fontSize: string;
     fontWeight: string;
     lineHeight: string;
-    text: string;
+    text: any;
     color: string;
 }
 const Text: React.FC<ForText> = ({fontSize, fontWeight, lineHeight, text, color}) => {
@@ -60,22 +61,25 @@ const Span = styled.span`
     left: 50%;
 `
 
+interface Props {
+    kpis: SmallRadialsKPI;
+}
 
-const LongCard: React.FC = () => {
+const LongCard = ({kpis}: Props) => {
     return (
         <Card>
             <Block>
-                <RadialSmall fillColor='#5BE49B' text="73,9%" />
+                <RadialSmall fillColor='#5BE49B' text={kpis.percentSold} />
                 <TextHolder>
-                    <Text fontSize="24px" fontWeight="700" lineHeight="36px" color="#212B36" text="9,990" />
+                    <Text fontSize="24px" fontWeight="700" lineHeight="36px" color="#212B36" text={kpis.sold} />
                     <Text fontSize="14px" fontWeight="400" lineHeight="22px" color="rgba(99, 115, 129, 1)" text="Sold" />
                 </TextHolder>
             </Block>
             <Span />
             <Block>
-                <RadialSmall fillColor='#FFD666' text="45,6%" />
+                <RadialSmall fillColor='#FFD666' text={kpis.percentPending} />
                 <TextHolder>
-                    <Text fontSize="24px" fontWeight="700" lineHeight="36px" color="#212B36" text="10,989" />
+                    <Text fontSize="24px" fontWeight="700" lineHeight="36px" color="#212B36" text={kpis.pendingPayment} />
                     <Text fontSize="14px" fontWeight="400" lineHeight="22px" color="rgba(99, 115, 129, 1)" text="Pending for payment" />
                 </TextHolder>
             </Block>
