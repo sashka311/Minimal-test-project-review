@@ -85,28 +85,6 @@ const Line: React.FC<ForLine> = ({ width, background }) => {
     )
 }
 
-// const data = [
-//     {
-//         label: 'Pending',
-//         value: 56000,
-//         percentage: 75,
-//         background: '#FFAB00',
-//     },
-//     {
-//         label: 'Canceled',
-//         value: 10000,
-//         percentage: 29,
-//         background:'rgba(255, 86, 48, 1)',
-//     },
-//     {
-//         label: 'Sold',
-//         value: 70,
-//         percentage: 56,
-//         background:'rgba(34, 197, 94, 1)',
-//     },
-// ]
-
-// const BarCharted = ({ kpis }: Props) => {
 interface Props {
     kpis: BarKPIs;
 }

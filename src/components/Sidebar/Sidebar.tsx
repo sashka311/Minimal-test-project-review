@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import MenuComponent from '../MenuComponent/MenuComponent';
 import GroupName from "../GroupName/GroupName";
 import Button from "../Button/Button";
+import Link from "next/link";
 
 const MenuBlock = styled.div`
     display: flex;
@@ -104,9 +105,13 @@ const Sidebar: React.FC = () => {
                         </img>
                     </Logo>
                     <GroupName text="Overview" />
-                    <MenuComponent text="Overview" svgHref="/img/MainPage/ForMenuComponents/overview.svg" />
+                    <Link href={'/dashboard'}>
+                        <MenuComponent text="Overview" svgHref="/img/MainPage/ForMenuComponents/overview.svg" />
+                    </Link>
                     <MenuComponent text="E-commerce" svgHref="/img/MainPage/ForMenuComponents/ecommerce.svg" />
-                    <MenuComponent text="Analytics" svgHref="/img/MainPage/ForMenuComponents/analytics.svg" />
+                    <Link href={'/analytics'}>
+                        <MenuComponent text="Analytics" svgHref="/img/MainPage/ForMenuComponents/analytics.svg" />
+                    </Link>
                     <MenuComponent text="Banking" svgHref="/img/MainPage/ForMenuComponents/banking.svg" />
                     <MenuComponent text="Booking" svgHref="/img/MainPage/ForMenuComponents/booking.svg" />
                     <GroupName text="Management" />

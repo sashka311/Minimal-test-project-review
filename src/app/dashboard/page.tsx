@@ -93,24 +93,6 @@ const data: Data = {
     }
   };
 
-//   const data = [
-//     {
-//         label: 'Pending',
-//         value: 56000,
-//         percentage: 0.75,
-//     },
-//     {
-//         label: 'Canceled',
-//         value: 10000,
-//         percentage: 0.2,
-//     },
-//     {
-//         label: 'Sold',
-//         value: 70,
-//         percentage: 0.89,
-//     },
-// ]
-
 export default function Main() {
     const pageTitle = "Overview";
 
