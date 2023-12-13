@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Data } from '../types/dashboard.types';
+import { Data } from '../../types/dashboard.types';
 
 const dashboardData: Data = {
     kpis: {

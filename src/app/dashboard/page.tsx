@@ -64,7 +64,7 @@ export default function Main() {
 function Overview({ pageTitle }: OverviewProps) {
     const fetchData = async () => {
         try {
-            const response = await axios.get('/api/dashboard-overview');
+            const response = await axios.get('/api/dashboard-overview.tsx');
             return response.data;
         } catch (error) {
             console.error('Ошибка при запросе данных:', error);

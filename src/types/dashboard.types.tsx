@@ -4,35 +4,42 @@ export interface KPIs {
     canceled: number;
 }
 
-export interface Data {
-    kpis: KPIs;
-    booking: any;
-    barchart: any;
-    linechart: any;
-    smallRadials: any;
-    radial: any;
+export interface IncomeData {
+    value: number;
+    breakdown: number[];
 }
 
-export interface BarKPIs {
-    percentage: number;
-    value: number;
-    label: string;
-    background: string;
-}[];
+export interface Data {
+    kpis: KPIs;
+    booking: {
+        income: IncomeData;
+    };
+    barchart: BarChart[];
+    linechart: LineChart;
+    smallRadials: SmallRadials;
+    radial: BigRadial;
+}
 
-export interface LineKPI {
+export interface BarChart {
+    label: string;
+    value: number;
+    percentage: number;
+    background: string;
+}
+
+export interface LineChart {
     totalIncomes: number;
     percent: number;
 }
 
-export interface SmallRadialsKPI {
+export interface SmallRadials {
     sold: number;
     pendingPayment: number;
     percentSold: number;
     percentPending: number;
 }
 
-export interface BigRadialKPIs {
+export interface BigRadial {
     soldOut: number;
     available: number;
 }
