@@ -1,5 +1,5 @@
 export interface Data {
-    barchart: Barchart[];
+    sliderProps: any;
 }
 
 export interface Barchart {
@@ -7,3 +7,11 @@ export interface Barchart {
     sold: number;
     canceled: number;
 }
+
+export interface SliderData {
+    name: string;
+    userImg: string;
+    date: string;
+    text: string;
+    stars: number;
+}[];

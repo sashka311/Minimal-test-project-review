@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Image from "next/image";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { PureComponent } from "react";
-import { Barchart } from '../../types/booking.types';
+import { Barchart } from '../../../types/booking.types';
 
 const ChartBlock = styled.div`
     display: flex;
