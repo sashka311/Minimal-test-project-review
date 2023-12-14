@@ -9,6 +9,7 @@ const SliderBlock = styled.div`
     width: 100%;
     flex-direction: column;
     gap: 24px;
+    position: relative;
 `
 
 const SliderPanel = styled.div`
@@ -51,9 +52,24 @@ const Img = styled(Image)`
 `
 interface Page {
     children: React.ReactNode;
+    cardsCount: any;
 }
 
-const Slider = ({children}: Page) => {
+const slideLeft = () => {
+    let slider = document.getElementById("slider");
+    if (slider) {
+        slider.scrollLeft = slider.scrollLeft - 276;
+    }
+};
+
+const slideRight = () => {
+    let slider = document.getElementById("slider");
+    if (slider) {
+        slider.scrollLeft = slider.scrollLeft + 276;
+    }
+};
+
+const Slider = ({ children, cardsCount }: Page) => {
     return (
         <SliderBlock>
             <SliderPanel>
@@ -62,15 +78,15 @@ const Slider = ({children}: Page) => {
                         Newest Booking
                     </SliderName>
                     <SliderCount>
-                        12 Bookings
+                        {cardsCount}
                     </SliderCount>
                 </TextBar>
                 <SliderNav>
                     <NavBlock>
-                        <Img src="/img/Slider/Navigation/arrow-left.svg" alt="left" width={20} height={20} />
+                        <Img src="/img/Slider/Navigation/arrow-left.svg" alt="left" width={20} height={20} onClick={slideLeft} />
                     </NavBlock>
                     <NavBlock>
-                        <Img src="/img/Slider/Navigation/arrow-right.svg" alt="right" width={20} height={20} />
+                        <Img src="/img/Slider/Navigation/arrow-right.svg" alt="right" width={20} height={20} onClick={slideRight} />
                     </NavBlock>
                 </SliderNav>
             </SliderPanel>

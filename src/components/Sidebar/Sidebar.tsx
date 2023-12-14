@@ -113,7 +113,9 @@ const Sidebar: React.FC = () => {
                         <MenuComponent text="Analytics" svgHref="/img/MainPage/ForMenuComponents/analytics.svg" />
                     </Link>
                     <MenuComponent text="Banking" svgHref="/img/MainPage/ForMenuComponents/banking.svg" />
-                    <MenuComponent text="Booking" svgHref="/img/MainPage/ForMenuComponents/booking.svg" />
+                    <Link href={'/booking'}>
+                        <MenuComponent text="Booking" svgHref="/img/MainPage/ForMenuComponents/booking.svg" />
+                    </Link>
                     <GroupName text="Management" />
                     <MenuComponent text="Mail" svgHref="/img/MainPage/ForMenuComponents/mail.svg" />
                 </MenuMain>

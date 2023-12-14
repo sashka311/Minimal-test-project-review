@@ -11,6 +11,7 @@ const CardBlock = styled.div`
     border-radius: 16px;
     background: #F4F6F8;
     padding: 8px;
+    flex-shrink: 0;
 `
 
 const InfoBlock = styled.div`
@@ -101,11 +102,14 @@ const ImgHolder = styled.div<ForImg>`
 
 const CardContainer = styled.div`
     display: flex;
-    width: auto;
+    width: 1080px;
     height: auto;
     overflow: hidden;
     flex-wrap: nowrap;
     gap: 24px;
+    position: absolute;
+    top: 78px;
+    scroll-behavior: smooth;
 `
 
 interface Props {
@@ -114,7 +118,7 @@ interface Props {
 
 const Card = ({ props }: Props) => {
     return (
-        <CardContainer>
+        <CardContainer id="slider">
             {props.map((item: any, index: number) => (
                 <CardBlock key={index}>
                     <InfoBlock>

@@ -61,8 +61,45 @@ const data: Data = {
             imgLink: '/img/Slider/CardImages/img4.png',
             price: 219,
         },
+        {
+            name: 'Alexander',
+            userImg: '/img/Slider/Avatars/Avatar1.png',
+            date: '11 Aug 2023 9:00 PM',
+            bookingInfo: '3 days 2 night',
+            guestCount: '5 Guests',
+            imgLink: '/img/Slider/CardImages/img1.png',
+            price: 72,
+        },
+        {
+            name: 'Alexey Sarakuz',
+            userImg: '/img/Slider/Avatars/Avatar2.png',
+            date: '9 April 2023 10:00 AM',
+            bookingInfo: '7 days 6 night',
+            guestCount: '2 Guests',
+            imgLink: '/img/Slider/CardImages/img2.png',
+            price: 219,
+        },
+        {
+            name: 'Eugen Mance',
+            userImg: '/img/Slider/Avatars/Avatar3.png',
+            date: '26 Nov 2023 8:00 PM',
+            bookingInfo: '4 days 3 night',
+            guestCount: '3 Guests',
+            imgLink: '/img/Slider/CardImages/img3.png',
+            price: 310,
+        },
+        {
+            name: 'Sofia Grace',
+            userImg: '/img/Slider/Avatars/Avatar4.png',
+            date: '13 Mrach 2023 12:00 AM',
+            bookingInfo: '5 days 3 night',
+            guestCount: '2 Guests',
+            imgLink: '/img/Slider/CardImages/img4.png',
+            price: 219,
+        },
     ]
 }
+
 
 console.log(data.sliderProps)
 
@@ -74,7 +111,7 @@ export default function Analytics() {
             <DashboardLayout text={pageTitle}>
                 <Page>
                     <KPICards kpis={data.kpis} />
-                    <Slider>
+                    <Slider cardsCount={data.sliderProps.length+' Bookings'}>
                         <Card props={data.sliderProps} />
                     </Slider>
                 </Page>

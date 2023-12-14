@@ -61,39 +61,87 @@ export default function Main() {
     );
 }
 
-function Overview({ pageTitle }: OverviewProps) {
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('/api/dashboard-overview.tsx');
-            return response.data;
-        } catch (error) {
-            console.error('Ошибка при запросе данных:', error);
-            throw new Error('Не удалось загрузить данные');
-        }
-    };
+const data: Data = {
+    kpis: {
+        income: 15000,
+        totalBookings: 45000,
+        canceled: 55,
+    },
+    booking: {
+        income: {
+            value: 95000,
+            breakdown: [40000, 50000, 60000, 100000, 90000, 92000, 95000],
+        },
+    },
+    barchart: [
+        {
+            label: 'Pending',
+            value: 56000,
+            percentage: 20,
+            background: '#FFAB00',
+        },
+        {
+            label: 'Canceled',
+            value: 10000,
+            percentage: 56,
+            background: 'rgba(255, 86, 48, 1)',
+        },
+        {
+            label: 'Sold',
+            value: 70,
+            percentage: 86,
+            background: 'rgba(34, 197, 94, 1)',
+        },
+    ],
+    linechart: {
+        totalIncomes: 9990,
+        percent: 8.2,
+    },
+    smallRadials: {
+        sold: 9990,
+        pendingPayment: 10989,
+        percentSold: 73.9,
+        percentPending: 45.6,
+    },
+    radial: {
+        soldOut: 120,
+        available: 66,
+    }
+};
 
-    const { data } = useQuery('dashboardData', fetchData);
+function Overview({ pageTitle }: OverviewProps) {
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await axios.get('/api/dashboard-overview');
+    //         return response.data;
+    //     } catch (error) {
+    //         console.error('Ошибка при запросе данных:', error);
+    //         throw new Error('Не удалось загрузить данные');
+    //     }
+    // };
+
+    // const { data } = useQuery('dashboardData', fetchData);
 
     return (
         <Container>
             <DashboardLayout text={pageTitle}>
                 <Page>
-                    <KPICards kpis={data?.kpis} />
+                    <KPICards kpis={data.kpis} />
                     <Content>
                         <Charts>
                             <BigCard background="rgb(209,241,229)">
-                                <Legend kpis={data?.linechart} />
+                                <Legend kpis={data.linechart} />
                                 <TinyLineGraph />
                             </BigCard>
                             <BigCard>
                                 <ChartLegend>
                                     Booked
                                 </ChartLegend>
-                                <BarChart kpis={data?.barchart} />
+                                <BarChart kpis={data.barchart} />
                             </BigCard>
-                            <LongCard kpis={data?.smallRadials} />
+                            <LongCard kpis={data.smallRadials} />
                         </Charts>
-                        <RadialChart kpis={data?.radial} />
+                        <RadialChart kpis={data.radial} />
                     </Content>
                 </Page>
             </DashboardLayout>
