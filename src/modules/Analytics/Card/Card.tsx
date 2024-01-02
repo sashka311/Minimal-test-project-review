@@ -113,13 +113,13 @@ const CardContainer = styled.div`
 `
 
 interface Props {
-    props: SliderData;
+    sliderData: SliderData[];
 }
 
-const Card = ({ props }: Props) => {
+const Card = ({ sliderData }: Props) => {
     return (
         <CardContainer id="slider">
-            {props.map((item: any, index: number) => (
+            {sliderData.map((item: any, index: number) => (
                 <CardBlock key={index}>
                     <InfoBlock>
                         <UserBlock>

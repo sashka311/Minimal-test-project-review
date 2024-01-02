@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LineKPI } from '../../../types/dashboard.types';
+import { LineChart } from '../../../types/dashboard.types';
 
 const LegendHolder = styled.div`
     display: flex;
@@ -44,7 +44,7 @@ flex-direction: column;
 gap: ${(props) => props.gap || '4px'};
 `
 interface Props {
-    kpis: LineKPI;
+    kpis: LineChart;
 }
 
 const Legend = ({kpis}: Props) => {
@@ -56,12 +56,12 @@ const Legend = ({kpis}: Props) => {
                     Total Incomes
                 </UpText>
                 <BotText>
-                    {kpis.totalIncomes}
+                    {kpis.totalIncomes}$
                 </BotText>
             </Block>
             <Block>
                 <RightText>
-                    {kpis.percent}
+                    {kpis.percent}%
                 </RightText>
                 <RBotText>
                     than last week

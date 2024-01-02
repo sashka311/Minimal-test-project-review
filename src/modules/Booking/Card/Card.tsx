@@ -84,13 +84,13 @@ const MarkText = styled.p`
 `
 
 interface Props {
-    props: SliderData;
+    sliderData: SliderData[];
 }
 
-const Card = ({ props }: Props) => {
+const Card = ({ sliderData }: Props) => {
     return (
         <CardContainer id="slider">
-            {props.map((item: any, index: number) => (
+            {sliderData.map((item: any, index: number) => (
                 <CardBlock key={index}>
                     <UserBlock>
                         <img src={item.userImg} />

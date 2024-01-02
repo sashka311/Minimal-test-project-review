@@ -23,7 +23,7 @@ const KPICards = ({ kpis }: Props) => (
         <SmallCard
         title="Income"
         image="income.png"
-        value={kpis.income}
+        value={`${kpis.income}$`}
         />
         <SmallCard
         title="Canceled"

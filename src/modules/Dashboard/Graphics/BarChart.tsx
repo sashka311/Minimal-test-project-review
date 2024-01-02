@@ -1,8 +1,8 @@
-import { ListItem } from '@mui/material';
+
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { string } from 'yup';
-import { BarKPIs } from '../../../types/dashboard.types';
+import { BarChart } from '../../../types/dashboard.types';
 
 const BarContainer = styled.div`
     display: flex;
@@ -86,7 +86,7 @@ const Line: React.FC<ForLine> = ({ width, background }) => {
 }
 
 interface Props {
-    kpis: BarKPIs;
+    kpis: BarChart[];
 }
 
 const BarCharted = ({ kpis }: Props) => {

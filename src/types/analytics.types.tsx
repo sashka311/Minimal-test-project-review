@@ -17,4 +17,4 @@ export interface SliderData {
     guestCount: string;
     imgLink: string;
     price: number;
-}[];
+};

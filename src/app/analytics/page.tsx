@@ -112,7 +112,7 @@ export default function Analytics() {
                 <Page>
                     <KPICards kpis={data.kpis} />
                     <Slider cardsCount={data.sliderProps.length+' Bookings'}>
-                        <Card props={data.sliderProps} />
+                        <Card sliderData={data.sliderProps} />
                     </Slider>
                 </Page>
             </DashboardLayout>

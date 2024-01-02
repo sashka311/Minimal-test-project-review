@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
 import styled from 'styled-components';
-import { BigRadialKPIs } from '../../../types/dashboard.types';
+import { BigRadial } from '../../../types/dashboard.types';
 
 const ChartBlock = styled.div`
     display: flex;
@@ -100,7 +100,7 @@ border-radius: 6px;
 `
 
 interface Props {
-    kpis: BigRadialKPIs;
+    kpis: BigRadial;
 }
 
 const RadialChart = ({kpis}: Props) => {

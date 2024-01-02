@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 import Image from "next/image";
 
@@ -84,21 +84,61 @@ interface Props {
     reviewCount: any;
 }
 
-const slideLeft = () => {
-    let slider = document.getElementById("slider");
-    if (slider) {
-        slider.scrollLeft = slider.scrollLeft - 320;
-    }
-};
+// const slideRight = () => {
+//     if (isAnimating) return;
 
-const slideRight = () => {
-    let slider = document.getElementById("slider");
-    if (slider) {
-        slider.scrollLeft = slider.scrollLeft + 320;
-    }
-};
+//     let slider = document.getElementById("slider");
+//     if (!slider) return;
+
+//     isAnimating = true;
+
+//     slider.scrollLeft = slider.scrollLeft + 320;
+
+//     slider.addEventListener('transitionend', () => {
+//         isAnimating = false;
+//     });
+// };
+
 
 const Slider = ({ children, reviewCount }: Props) => {
+
+    const [isSlideMoving, setSlideMoving] = useState(false);
+    if (typeof document !== 'undefined') {
+        const slider = document.getElementById("slider");
+
+        if (slider !== null) {
+            slider.addEventListener('scroll', () => {
+                setSlideMoving(true);
+                setTimeout(() => {
+                    setSlideMoving(false);
+                }, 800);
+            });
+        }
+    }
+
+    const slideLeft = () => {
+        if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+            if (!isSlideMoving) {
+                const slider = document.getElementById('slider');
+
+                if (slider !== null) {
+                    slider.scrollLeft = slider.scrollLeft - 320;
+                }
+            }
+        }
+    };
+
+    const slideRight = () => {
+        if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+            if (!isSlideMoving) {
+                const slider = document.getElementById('slider');
+
+                if (slider !== null) {
+                    slider.scrollLeft = slider.scrollLeft + 320;
+                }
+            }
+        }
+    };
     return (
         <SliderContainer>
             <NavBlock>

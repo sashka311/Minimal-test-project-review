@@ -86,7 +86,7 @@ export default function Booking() {
                 <Page>
                     <Chart />
                     <Slider reviewCount={data.sliderProps.length +' Reviews'}>
-                        <Card props={data.sliderProps} />
+                        <Card sliderData={data.sliderProps} />
                     </Slider>
                 </Page>
             </DashboardLayout>

@@ -14,4 +14,4 @@ export interface SliderData {
     date: string;
     text: string;
     stars: number;
-}[];
+};

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import RadialSmall from "../Graphics/RadialSmall";
-import { SmallRadialsKPI } from "../../../types/dashboard.types";
+import { SmallRadials } from "../../../types/dashboard.types";
 
 const Card = styled.div`
     display: flex;
@@ -62,7 +62,7 @@ const Span = styled.span`
 `
 
 interface Props {
-    kpis: SmallRadialsKPI;
+    kpis: SmallRadials;
 }
 
 const LongCard = ({kpis}: Props) => {
